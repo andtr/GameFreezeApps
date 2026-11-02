@@ -13,8 +13,10 @@ jobs:
       - uses: gradle/actions/setup-gradle@v3
         with:
           gradle-version: '8.7'
+      - name: Generate Gradle Wrapper
+        run: gradle wrapper --gradle-version 8.7
       - name: Build APK
-        run: gradle assembleRelease
+        run: ./gradlew assembleRelease
       - uses: actions/upload-artifact@v4
         with:
           name: GameFreezerApp-APK
